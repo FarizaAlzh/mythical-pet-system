@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 
 @Entity
 @Table(name = "pets")
@@ -25,6 +26,8 @@ public class Pet {
     private AdoptionStatus adoptionStatus;
 
     private String description;
+    @Column(name = "image_url")
+    private String imageUrl;
 
     public Pet() {
     }
@@ -87,5 +90,13 @@ public class Pet {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

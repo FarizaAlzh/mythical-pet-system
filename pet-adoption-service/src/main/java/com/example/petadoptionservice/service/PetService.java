@@ -44,6 +44,7 @@ public class PetService {
         pet.setTemperament(request.getTemperament());
         pet.setMagicLevel(request.getMagicLevel());
         pet.setDescription(request.getDescription());
+        pet.setImageUrl(request.getImageUrl());
         pet.setAdoptionStatus(AdoptionStatus.PENDING);//система по дефолту
 
         return toResponse(petRepository.save(pet));
@@ -59,7 +60,8 @@ public class PetService {
                 pet.getTemperament(),
                 pet.getMagicLevel(),
                 pet.getAdoptionStatus(),
-                pet.getDescription()
+                pet.getDescription(),
+                pet.getImageUrl()
         );
     }
 }

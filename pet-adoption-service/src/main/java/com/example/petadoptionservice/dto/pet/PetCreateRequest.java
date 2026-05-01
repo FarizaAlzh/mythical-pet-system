@@ -28,6 +28,7 @@ public class PetCreateRequest {
 
     @NotBlank
     private String description;
+    private String imageUrl;
 
     public PetCreateRequest() {
     }
@@ -78,5 +79,13 @@ public class PetCreateRequest {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

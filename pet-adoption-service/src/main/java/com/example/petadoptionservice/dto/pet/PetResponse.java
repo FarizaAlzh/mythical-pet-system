@@ -12,12 +12,13 @@ public class PetResponse {
     private Integer magicLevel;
     private AdoptionStatus adoptionStatus;
     private String description;
+    private String imageUrl;
 
     public PetResponse() {
     }
 
     public PetResponse(Long id, String name, String species, Integer dangerLevel, String temperament,
-                       Integer magicLevel, AdoptionStatus adoptionStatus, String description) {
+                       Integer magicLevel, AdoptionStatus adoptionStatus, String description,String imageUrl) {
         this.id = id;
         this.name = name;
         this.species = species;
@@ -26,6 +27,7 @@ public class PetResponse {
         this.magicLevel = magicLevel;
         this.adoptionStatus = adoptionStatus;
         this.description = description;
+        this.imageUrl = imageUrl;
     }
 
     public Long getId() {
@@ -58,5 +60,9 @@ public class PetResponse {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 }

@@ -50,7 +50,8 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/v3/api-docs/**",
                                 "/swagger-ui/**",
-                                "/swagger-ui.html"
+                                "/swagger-ui.html",
+                                "/pet_images/**"
                         ).permitAll()
                         .requestMatchers("/auth/**").permitAll() //доступны без токена
                         .requestMatchers(HttpMethod.GET, "/api/pets/**").permitAll() //доступны без логина
