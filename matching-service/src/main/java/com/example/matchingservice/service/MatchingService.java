@@ -11,9 +11,7 @@ public class MatchingService {
         int userMagicTolerance = valueOrZero(requestDto.getUserMagicTolerance()); // null == 0
         int petDangerLevel = valueOrZero(requestDto.getPetDangerLevel());
         int petMagicLevel = valueOrZero(requestDto.getPetMagicLevel());
-
         int score = 50;
-
         int toleranceVsDanger = userMagicTolerance - petDangerLevel;
         //если tolerance выше danger -> это хорошо
         if (toleranceVsDanger >= 2) {
@@ -25,14 +23,12 @@ public class MatchingService {
         } else {
             score -= 20;
         }
-
         //тип бонуса если спокойное животное + КВ
         boolean calmApartmentMatch = equalsIgnoreCase(requestDto.getPetTemperament(), "calm")
                 && equalsIgnoreCase(requestDto.getUserHomeType(), "APARTMENT");
         if (calmApartmentMatch) {
             score += 15;
         }
-
         //сравнение petMagicLevel и userMagicTolerance
         if (petMagicLevel > userMagicTolerance + 2) {
             score -= 20;
@@ -41,9 +37,7 @@ public class MatchingService {
         } else {
             score += 10;
         }
-
         score = Math.max(0, Math.min(100, score));
-
         String explanation = buildExplanation(score, calmApartmentMatch, toleranceVsDanger, requestDto.getPetSpecies());
         return new MatchResponseDto(score, explanation);
     }
@@ -51,7 +45,6 @@ public class MatchingService {
     private int valueOrZero(Integer value) {
         return value == null ? 0 : value;
     }
-
     //стравнение строк без регистра
     private boolean equalsIgnoreCase(String left, String right) {
         return left != null && left.equalsIgnoreCase(right);
